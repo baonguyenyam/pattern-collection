@@ -3,6 +3,20 @@ extends layout
 block content
 	if (process.env.NODE_ENV === 'dev')
 		include __index
+		.container-fluid.hero-body
+			.columns
+				form#formAddComponent.column(enctype='multipart/form-data', method='POST')
+					.field
+						.file.is-boxed
+							label.file-label
+								input.file-input#imgUploader(type="file" name="imgUploader")
+								span.file-cta
+									span.file-icon
+										i.fas.fa-upload
+									span.file-label
+										| Choose a file…
+					.field
+						button#add.button.is-primary Add new
 	else 
 		script
 			include __index.js

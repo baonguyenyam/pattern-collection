@@ -18,18 +18,3 @@ header.hero.is-primary
 				.box
 					button#download.button.is-primary(style="display:none") Download
 
-if (process.env.NODE_ENV === 'dev')
-	.container-fluid.hero-body
-		.columns
-			form#formAddComponent.column(enctype='multipart/form-data', method='POST')
-				.field
-					.file.is-boxed
-						label.file-label
-							input.file-input#imgUploader(type="file" name="imgUploader")
-							span.file-cta
-								span.file-icon
-									i.fas.fa-upload
-								span.file-label
-									| Choose a file…
-				.field
-					button#add.button.is-primary Add new
