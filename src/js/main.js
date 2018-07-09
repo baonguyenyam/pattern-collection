@@ -1,7 +1,8 @@
 function getUIMG() {
 	$.get("/getimg", function (data) {
+		var rand = shuffle(data)
 		$('#pagination-container').pagination({
-			dataSource: data,
+			dataSource: rand,
 			pageSize: 20,
 			className: 'paginationjs-theme-green',
 			callback: function (data, pagination) {
@@ -12,6 +13,25 @@ function getUIMG() {
 		})
 	})
 }
+
+function shuffle(array) {
+	var currentIndex = array.length, temporaryValue, randomIndex;
+  
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+  
+	  // Pick a remaining element...
+	  randomIndex = Math.floor(Math.random() * currentIndex);
+	  currentIndex -= 1;
+  
+	  // And swap it with the current element.
+	  temporaryValue = array[currentIndex];
+	  array[currentIndex] = array[randomIndex];
+	  array[randomIndex] = temporaryValue;
+	}
+  
+	return array;
+  }
 
 function simpleTemplating(data) {
 	var html = '<div class="row">';
