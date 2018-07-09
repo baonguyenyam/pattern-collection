@@ -75,3 +75,23 @@ function IMGResponsive() {
 		});
 	});
 }
+
+$('#formAddComponent button').click(function (e) {
+	var data = new FormData($('#formAddComponent')[0]);
+	$.ajax({
+		url: '/upload',
+		type: 'POST',
+		contentType: false,
+		processData: false,
+		cache: false,
+		data: data,
+		success: function () {
+			alert('Upload hoàn tất')
+			$('#formAddComponent')[0].reset();
+		},
+		error: function () {
+			alert('Lỗi khi upload!');
+		}
+	});
+	return false;
+})
