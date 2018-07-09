@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	if (process.env.NODE_ENV === 'dev')
+		include __index
+	else 
+		script
+			include __index.js
