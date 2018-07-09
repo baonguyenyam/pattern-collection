@@ -2,7 +2,7 @@ function getUIMG() {
 	$.get("/getimg", function (data) {
 		$('#pagination-container').pagination({
 			dataSource: data,
-			pageSize: 8,
+			pageSize: 20,
 			className: 'paginationjs-theme-green',
 			callback: function (data, pagination) {
 				var html = simpleTemplating(data);
